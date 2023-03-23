@@ -1,0 +1,43 @@
+@baseUrl=http://localhost:3001/api
+@resourcename=users
+###
+
+# @name getAll
+GET {{baseUrl}}/{{resourcename}} HTTP/1.1
+Content-Type: application/json
+###
+
+# @name filterUsers
+GET {{baseUrl}}/{{resourcename}}?age=58 HTTP/1.1
+Content-Type: application/json
+###
+
+# @name Pagination
+GET {{baseUrl}}/{{resourcename}}?_page=1&_limit=50 HTTP/1.1
+Content-Type: application/json
+###
+
+# @name Sort
+GET {{baseUrl}}/{{resourcename}}?_sort=age&_order=desc HTTP/1.1
+Content-Type: application/json
+###
+
+# @name Update
+PATCH {{baseUrl}}/{{resourcename}}/1 HTTP/1.1
+Content-Type: application/json
+{
+    "firstName":"Khôi Vĩnh"
+}
+###
+
+# @name Delete
+DELETE {{baseUrl}}/{{resourcename}}/2 HTTP/1.1
+Content-Type: application/json
+###
+
+# @name Addnew
+POST {{baseUrl}}/{{resourcename}} HTTP/1.1
+Content-Type: application/json
+{
+    "firstName":"Khôi Vĩnh"
+}
