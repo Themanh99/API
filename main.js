@@ -33,16 +33,14 @@ router.render = (req, res) => {
     const totalCount = headers['x-total-count']
     if (req.method === 'GET' && totalCount) {
         const queryParams = queryString.parse(req._parsedUrl.query)
-        console.log(queryParams);
         const result = {
             data: res.locals.data,
             pagination: {
                 _page: Number.parseInt(queryParams._page) || 1,
-                _limit: Number.parseInt(queryParams._limit) || 30,
+                _limit: Number.parseInt(queryParams._limit) || 100,
                 _totalRows: Number.parseInt(totalCount)
             },
         };
-
         return res.jsonp(result);
     }
     res.jsonp(res.locals.data);
