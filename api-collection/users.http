@@ -1,4 +1,4 @@
-@baseUrl=https://mockup-api.onrender.com/api
+@baseUrl=http://localhost:3001/api
 @resourcename=users
 ###
 
